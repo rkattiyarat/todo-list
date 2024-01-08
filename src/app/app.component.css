@@ -1,0 +1,11 @@
+.done{
+    text-decoration: line-through;
+}
+
+.empty-input {
+    border: 2px solid red; /* Add your desired styling for an empty input */
+  }
+  
+  .error-message {
+    color: red; /* Add your desired styling for the error message */
+  }
