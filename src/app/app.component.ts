@@ -25,6 +25,22 @@ export class AppComponent {
     }
   }
 
+  toEdit(id: number) {
+    this.todos.forEach((todo, index) => {
+      if (index === id) {
+        todo.edit = true;
+      }
+      else {
+        todo.edit = false;
+      }
+    });
+    this.inputEmpty = false; // Reset the inputEmpty flag
+  }
+
+  saveEdit(id: number) {
+    this.todos[id].edit = false;
+  }
+
   done(id: number) {
     this.todos[id].isCompleted = !this.todos[id].isCompleted;
   }

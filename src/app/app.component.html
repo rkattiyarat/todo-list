@@ -10,10 +10,13 @@
     </div>
     <div *ngIf="inputEmpty" class="error-message">Please enter a task</div>
 
-    <div class="row">
-      <ol class="list-group list-group-numbered">
-        <li class="list-group-item {{(!todo.isCompleted)? 'done':''}}"  *ngFor="let todo of todos; index as i" (click)="done(i)">{{todo.description}}
-        <button type="button" class="btn btn-danger" (click)="deleteTodo(i)">Delete</button> 
+    <div class="row ">
+      <ol class="list-group list-group-numbered ">
+        <li class="list-group-item {{(!todo.isCompleted)? 'done':''}}"  *ngFor="let todo of todos; index as i">{{todo.description}}
+          <input *ngIf="todo.edit" [(ngModel)]="todo.description" (blur)="saveEdit(i)">
+          <button type="button" class="btn btn-warning" (click)="toEdit(i)">Edit</button>
+          <button type="button" class="btn btn-success" (click)="done(i)">Done</button>
+          <button type="button" class="btn btn-danger" (click)="deleteTodo(i)">Delete</button> 
         </li>
       </ol>
     </div>
